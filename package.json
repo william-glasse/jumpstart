@@ -12,7 +12,7 @@
     "pre:push": "npm-run-all test test:sonar",
     "prepare": "husky install",
     "test": "snyk test",
-    "test:sonar": "env-cmd -x sonar-scanner -D sonar.login=\\$SONAR_TOKEN",
+    "test:sonar": "env-cmd -x sonar-scanner -D sonar.login=\\$SONAR_TOKEN"
   },
   "lint-staged": {
     "*": "npm run detect-secrets",
