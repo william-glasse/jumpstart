@@ -11,10 +11,12 @@
     "pre:commit": "lint-staged --relative --verbose",
     "pre:push": "npm test",
     "prepare": "husky install",
+    "prettier:fix": "prettier --write",
     "test": "snyk test"
   },
   "lint-staged": {
     "*": "npm run detect-secrets",
+    "*.{sh}": "npm run prettier:fix",
     "package.json": [
       "sort-package-json"
     ]
@@ -25,6 +27,8 @@
     "env-cmd": "^10.1.0",
     "husky": "^7.0.4",
     "lint-staged": "^11.2.6",
+    "prettier": "^2.5.1",
+    "prettier-plugin-sh": "^0.8.1",
     "snyk": "^1.840.0",
     "sort-package-json": "^1.54.0"
   }
