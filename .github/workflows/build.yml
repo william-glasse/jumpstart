@@ -16,18 +16,6 @@ jobs:
         run: npm ci
       - name: Detect Secrets
         run: npm run detect-secrets $( git ls-files )
-  format:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Install dependencies
-        run: npm ci
-      - name: Eslint
-        run: npm run eslint:verify
-      - name: Prettier
-        run: npm run prettier:verify
   sonarcloud:
     runs-on: ubuntu-latest
     steps:
@@ -37,10 +25,6 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version-file: '.nvmrc'
-      - name: Install dependencies
-        run: npm ci
-      - name: Unit Tests
-        run: npm run test:unit
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
